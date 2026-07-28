@@ -22,7 +22,7 @@ Contents
    api
    soluzioni_problematiche
    comandi_cluster
-   comandi_cluster2
+   brutto
    iscra
    euhpc
    tts
