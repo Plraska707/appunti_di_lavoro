@@ -21,3 +21,7 @@ Contents
    usage
    api
    soluzioni_problematiche
+   comandi_cluster
+   iscra
+   euhpc
+   tts
