@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'Appunti di lavoro'
+copyright = '2026, Attilio'
+author = 'Attilio'
 
 release = '0.1'
 version = '0.1.0'
@@ -30,6 +30,14 @@ templates_path = ['_templates']
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
+
+html_theme_options = {
+    "collapse_navigation": False,
+    "sticky_navigation": True,
+    "navigation_depth": 4,   # or -1 for unlimited
+    "includehidden": True,
+    "titles_only": False,
+}
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'

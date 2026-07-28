@@ -20,3 +20,4 @@ Contents
 
    usage
    api
+   soluzioni_problematiche
