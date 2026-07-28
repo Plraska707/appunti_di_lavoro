@@ -9,8 +9,9 @@ https://access.eurohpc-ju.europa.eu/
 
 https://access.eurohpc-ju.europa.eu/auth/login
 
+***
 REG
-===
+***
 
 EHPC-REG-2025R02-368
 --------------------
@@ -173,8 +174,9 @@ Booster is efficient and well targeted.
 
 **Application Support Team (AST)** An AST was not requested
 
+***
 DEV
-===
+***
 
 EHPC-DEV-2025D05-028
 --------------------
@@ -366,8 +368,9 @@ capacity of the cluster, which consists of 1,536 nodes.
 **Reason for classification** The required resources exceed partition
 job limits
 
+***
 EXT
-===
+***
 
 EHPC-EXT-2025E02-054
 --------------------

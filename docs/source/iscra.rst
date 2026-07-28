@@ -27,9 +27,9 @@ Spunti per Additional notes
 ---------------------------
 Non giustifica in modo esplicito le ore richieste, ma dal cv e dai lavori è uno che sa quello che fa, per cui approverei su entrambi i cluster, magari da valutare il budget su g100.
 
-
+*******
 ISCRA B
-=======
+*******
 Iscra B LAZEYRAS (HP10BLXSO1)
 -------------------------------
 **Motivation:**  
@@ -229,9 +229,9 @@ Iscra B: BOULA (HP10BA9JKC)
 
 
 
-----------------------------------------------------------------------------------------------------------------------------------
+*******
 ISCRA C
-=======
+*******
 Iscra C: BALDI (HP10C52ODR)
 -------------------------------
 **Motivation:**   
@@ -472,8 +472,9 @@ Iscra C:  MORSHED (HP10CHEXFS)  1 Luglio
 **Motivation**  
 The project is acceptable, and the requested computational resources are within the limits of the assigned project class. However, it would be appreciated even a rough explanation for the requested budget, such as number of jobs, size and walltime of the job. Please keep this in mind for future applications.
 
+*******
 ISCRA D
-=======
+*******
 
 Iscra D: RAGAGNIN (HP10D538JW)
 -------------------------------
