@@ -1,11 +1,12 @@
+=======================
 Soluzioni Problematiche
 =======================
 
 Licenze
-=======
+-------
 
 Licenze valide per tutti
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Nei casi in cui abbiamo delle licenze valide per tutti, è sufficiente aggiornare il file di licenza presente sul cluster usando l'utenza propro01 (ad esempio con NAG).
 
@@ -17,7 +18,7 @@ Nei casi in cui abbiamo delle licenze valide per tutti, è sufficiente aggiornar
 - Si ripete per ogni versione mostrata da ``module av``.
 
 Licenze tramite license manager
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Altre licenze sono gestite tramite License manager e in questi casi vanno messi in whitelist gli IP dei server su cui sono presenti le licenze degli utenti.
 
@@ -41,7 +42,7 @@ La nuova connessione va anche registrata sulla tabella delle licenze.
 Il ticket #48000 ha un esempio per Ansys, insieme alla issue in cui chiedo di mettere l'indirizzo in whitelist.
 
 Propro01
-========
+--------
 
 propro01 è l'utenza con cui si fanno modifiche che valgono per tutto il cluster.
 
@@ -56,7 +57,7 @@ Qualora non funzioni, provare con:
 - ``su - propro01``
 
 Modificare una qos
-==================
+------------------
 
 Accedere a una delle VM:
 
@@ -96,7 +97,7 @@ Poi, associare la qos alla propria utenza con cin_staff:
 
 e provare a lanciare un job:
 
-- ``srun -N 256 --ntasks-per-node=112 --qos=qos_deste -p dcgp_usr_prod --pty bash``
+- ``srun -N 256 ^^ntasks-per-node=112 ^^qos=qos_deste -p dcgp_usr_prod ^^pty bash``
 
 Se è tutto ok, associare la qos all'account che lo dovrà utilizzare:
 
@@ -107,30 +108,30 @@ e impostare i limiti di associazione così da limitare il numero di nodi utilizz
 - ``sacctmgr modify account where account=DestE_330_26_0 cluster=leonardo set MaxWall=24:00:00 MaxTRES=node=256 GrpTRES=node=256``
 
 Comando Datamover tra due cluster
-=================================
+------------------
 
 Qualora la copia tra due cluster non funzioni nella maniera più semplice, provare con questo comando:
 
 - ``ssh -xt nchuluch@data.marconi.cineca.it rsync -PravzHS nchuluch@data.leonardo.cineca.it:/leonardo_scratch/large/userexternal/nchuluch/nchuluch/TAE/MAST_Feb/n3_orig_bump_tempscan/40/orb5_res.h5 /marconi/home/userexternal/nchuluch``
 
 Contatti
-========
+--------
 
 Chi contattare in caso di richieste:
 
-- ISCRA --> Paola Alberigo.
-- Eurofusion --> Richard Kamendje.
-- Progetti chiusi da recuperare in extremis --> Marco Alberoni.
-- Ticket in cui chiedono di pagare per risorse sui cluster --> Eric Pascolo e il suo capo Arlandini.
-- Progetti vari (e.g. accademici, anche se chiedono di pagare) --> Maurizio Cremonesi.
-- EUROHPC --> Tiziana.
+- ISCRA ^^> Paola Alberigo.
+- Eurofusion ^^> Richard Kamendje.
+- Progetti chiusi da recuperare in extremis ^^> Marco Alberoni.
+- Ticket in cui chiedono di pagare per risorse sui cluster ^^> Eric Pascolo e il suo capo Arlandini.
+- Progetti vari (e.g. accademici, anche se chiedono di pagare) ^^> Maurizio Cremonesi.
+- EUROHPC ^^> Tiziana.
 - Corsi vari: Alle e Orlenys.
 - ICSC: Davide Salomoni.
 - CESMA: Ing. Vincenzo Moscato.
 - Scuola Superiore Meridionale: Ing. Raffaele Cacciano.
 
 Controllare responsabile di un software
-======================================
+--------------------------------------
 
 - ``modmap -m <nome_software>``
 - caricare profilo e modulo
@@ -138,7 +139,7 @@ Controllare responsabile di un software
 - fare ``ls`` sul percorso del modulefile (in alto) e aprirlo per leggerne il responsabile, oltre alle altre info riportate
 
 Spack
-=====
+--------
 
 I programmi installati sulle macchine sono divisi in profili, librerie etc.
 
@@ -149,7 +150,7 @@ I profili global e base sono esclusivi, cioè può essere caricato solo uno di l
 Gli altri profili sono additivi, cioè caricandoli si aggiungono a quelli già presenti.
 
 - ``module av -a <nome_modulo>`` mostra tutti i moduli con quel nome, anche quelli nascosti.
-- Per caricare un modulo nascosto è necessario indicarne il nome per intero, per esempio ``cuda/11.1.0--gcc--10.2.0``.
+- Per caricare un modulo nascosto è necessario indicarne il nome per intero, per esempio ``cuda/11.1.0^^gcc^^10.2.0``.
 - ``module show <nome_modulo>`` mostra il percorso del file del modulo in cui sono presenti tutti i suoi settaggi.
 
 Al percorso ``/cineca/prod/opt/helps/`` sono presenti varie cartelle per i vari software, con all'interno un modulefile nascosto ``.help`` in cui sono gli script utili per tutte le installazioni del software.
@@ -180,7 +181,7 @@ Per aggiungere una versione alla ricetta, si va sulla pagina github relativa al 
 - ``spack edit <nome_software>`` apre la ricetta in modalità modifica (con vim)
 - ``spack spec -Il <nome_software>`` mostra un'anteprima di come verrà installato un programma
 - ``spack find <nome_software>`` mostra tutti i software già installati con spack
-- ``spack find --loaded`` mostra i pacchetti attualmente caricati
+- ``spack find ^^loaded`` mostra i pacchetti attualmente caricati
 - ``spack diff /hash1 /hash2`` mostra le differenze tra due specifiche diverse
 
 Simboli di spack:
@@ -204,22 +205,22 @@ Per creare un modulo con spack:
 - ``spack module tcl refresh <nome>``
 
 File Slurm
-=========
+---------
 
 Rinnovo password
-----------------
+---------
 
 Quando arriva un ticket relativo al rinnovo della password per tts, fare riferimento a Susana.
 
 slurm.config
-------------
+---------
 
 Se c’è bisogno di controllare questo file per verificare le impostazioni di slurm sul cluster, lo si può trovare al percorso:
 
 - ``/var/spool/slurmd/conf-cache/slurm.conf``
 
 VASP
-====
+----
 
 Quando un utente richiede di utilizzare VASP su un cluster, bisogna:
 
@@ -228,7 +229,7 @@ Quando un utente richiede di utilizzare VASP su un cluster, bisogna:
 - se è tutto ok, seguire le istruzioni su questa pagina
 
 Installazione da sorgente
-=========================
+------------------------
 
 Quando si deve installare da file sorgente, conviene cercare le istruzioni in un qualche file README presente nella cartella.
 
@@ -237,7 +238,7 @@ In generale si tratta di file tar.gz o tar.bz2 che vanno estratti con comandi de
 Poi ``cd`` nella cartella creata e lanciare ``./configure`` e/o ``make`` a seconda dei casi.
 
 Stale file handle
-=================
+------------------
 
 Quando gli utenti ci comunicano questo tipo di errore, è bene:
 
@@ -253,12 +254,12 @@ Quando gli utenti ci comunicano questo tipo di errore, è bene:
 Questo problema solitamente accade a causa di noti problemi puntuali della rete, che causano il temporaneo unmount del filesystem per i nodi coinvolti, risultando nell'errore osservato.
 
 Help dei moduli
-===============
+----------------
 
 Sui cluster al percorso ``/cineca/prod/opt/helps`` si dovrebbe trovare la cartella di ogni modulo ed il file ``.help`` dove scrivere il testo proposto dall'help.
 
 Rinomina cartelle
-=================
+------------------
 
 Quando un utente chiede di rinominare una cartella così da trasferire tutti i dati del vecchio progetto in quello nuovo, assicurarsi che:
 
@@ -272,7 +273,7 @@ Avvisare l'utente che al momento della rinomina la cartella deve essere vuota e 
 Inviare poi una richiesta di questo tipo ai sys.
 
 Conversione tra diverse espressioni delle ore
-============================================
+---------------------------------------------
 
 - standard hours = core hours/FACTOR
 - core hours = local hours
