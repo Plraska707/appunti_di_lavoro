@@ -1,6 +1,6 @@
 Comandi cluster  
 ========================
-# Comandi generali
+## Comandi generali
 
 - squeue - view information about jobs located in the Slurm scheduling queue.	
 - sinfo - View information about Slurm nodes and partitions. 	
@@ -10,14 +10,14 @@ Comandi cluster
 
 sacct -e JobID,JobName,Partition,Account,AllocCPUS,State,ExitCode
 
-# Saldo
+## Saldo
 - saldo -b	mostra lo stato nel proprio account  
 - saldo -bu <username>	mostra lo stato dell’utente  
 - saldo -bc mostra il saldo con le ore convertite da local a std
 - saldo -ba <account>	mostra le info dell’account  
 - saldo -ra <account>	info giorno per giorno delle risorse consumate da ogni   utente su ogni account  
 
-# Sacct	
+## Sacct	
 - sacct  
 info sui propri job del giorno
 - sacct -u <nome utente>  
@@ -36,7 +36,7 @@ estrazione e somma dei valori della colonna 3
 - sacct -j <jobid> -o submitline%100  
 in caso di job interattivi lanciati con srun e che non hanno uno sbatch
 
-# Sacctmgr 
+## Sacctmgr 
 - sacctmgr show qos6/29/26 <nome_qos> (il nome è opzionale)  
 mostra tutte le info sulla qos indicata
 - sacctmgr show user <nome_utente> -P  
@@ -50,14 +50,14 @@ mostra le informazioni richieste riguardo la qos indicata
 mostra a quali qos è associato un dato progetto (in questo caso EIRI_E_POLITO)
 
 
-# Sinfo
+## Sinfo
 Mostra tutte le partizioni disponibili:  
 - sinfo -o %P  
 
 lista nodi situazione attuale (num tot nodi, num nodi in ogni stato, partizione)
 - sinfo -o "%10D %20F %P"  
 
-# Scontrol
+## Scontrol
 - scontrol show job 15046810  
 informazioni dettagliate su un job NON completato
 - scontrol show reservation  
@@ -65,7 +65,7 @@ per controllare le reservation attive
 - scontrol show partition <nome>
 mostra i dettagli di una partizione
 
-# Sprio
+## Sprio
 lista dei job in ordine di priorità  
 - sprio -l | sort -n -k4  
  
@@ -75,11 +75,11 @@ lista job in ordine di priorità (il più alto in cima)
 lista job in ordine di priorità (il più alto in fondo)
 - sprio -l -S +y
 
-# Cindata
+## Cindata
 - cindata	mostra le proprie risorse occupate
 - cindata -u <username>	mostra le risorse occupate da un utente
 
-# Comandi SLURM
+## Comandi SLURM
 
 - sinfo -R -O timestamp,nodelist:50,reason:100  
 lista nodi attualmente non disponibili
@@ -100,7 +100,7 @@ vedere il file sbatch del job
 	
 /etc/grid-security/cineca/grid-mapfile	file dove controllare i certificati degli utenti
 
-# Gestione cartelle	
+## Gestione cartelle	
 **!!!CARICARE MODULO SUPERC!!!**
 ### G100 e Pitagora (hpcsupport) 
 Su questi cluster non abbiamo i permessi sudo e dobbiamo quindi usare una virtual machine.  
@@ -144,15 +144,15 @@ copiare file da cluster (-r per le cartelle intere)
 - `scp <src> amarcell@login.g100.cineca.it:/g100/home/userinternal/amarcell`  
 copiare file dal mio pc alla cartella nel cluster (-r per copiare cartelle)
 	
-# Controllare attività nodo
+## Controllare attività nodo
 - Accedere al cluster
 - ssh <nodo>
 - htop
 
-## Accedere ad un nodo su Marconi:
+### Accedere ad un nodo su Marconi:
 - ssh `<nodo>`-hfi	
 
-# Modificare una qos	
+## Modificare una qos	
 Accedere ad una delle VM  
 impersonare cinprod  
 lanciare il comando per la modifica desiderata
@@ -161,7 +161,7 @@ lanciare il comando per la modifica desiderata
 - sudo -i -u cinprod  
 - sacctmgr modify qos qos_slowprio set MaxTRES=node=256 MaxTRESPU=node=256 MaxWall=12:00:00
 
-# Finger - whois
+## Finger - whois
 se finger non va si può usare la sua nuova alternativa: **whois**
 Per lanciarlo:
 - ml superc
@@ -170,7 +170,7 @@ Per lanciarlo:
 
 la prima volta che viene lanciato, il comando non funziona. Poi la cache si popola e viene trovato l'utente (a volte è necessario lanciarlo due volte).
 
-# Varie
+## Varie
 - modmap -m `<nome software>	`  
 mostra i software con quel nome
 - finger `<nome o cognome>`  
@@ -191,7 +191,7 @@ cerca tra la history di un utente
 - sacctmgr show user <`utente`>withassoc  
 mostra tutto ciò a cui è associato un utente sul cluster
 
-# Accesso nodo
+## Accesso nodo
 Quando ci sono errori e bisgona vedere i log dei nodi:  
 
 - controllare i nodi del job: sacct -j <jobid> -o nodelist%50
