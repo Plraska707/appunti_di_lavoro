@@ -59,4 +59,4 @@ alla casella **tts-micro-devel@cineca.it** a RT: :
 
 
 Elenco file:
-- 
+- /usr/local/bin/sendmail-msmtp
