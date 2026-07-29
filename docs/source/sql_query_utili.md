@@ -19,7 +19,7 @@ where table_schema = 'public'
 order by 3 desc;
 ```
 
-## Query dimensione dimensioni chunk hypertable:
+## Query dimensioni chunk hypertable:
 ```
 SELECT * FROM chunks_detailed_size('dist_table')
   ORDER BY chunk_name, node_name;
@@ -44,7 +44,7 @@ FROM chunks_detailed_size('slurm_jobs')
 ORDER BY chunk_name, node_name;
 ```
 
-## Query dimensione di tutte le hypertable:
+## Query dimensioni di tutte le hypertable:
 ```
 SELECT hypertable_name, hypertable_size(format('%I.%I', hypertable_schema, hypertable_name)::regclass)
   FROM timescaledb_information.hypertables;
@@ -60,7 +60,7 @@ Risultato in MB:
 FROM timescaledb_information.hypertables;
 ```
 
-### Query info varie hypertable:
+## Query info varie hypertable:
 ```
 SELECT * FROM timescaledb_information.chunks;
 ```

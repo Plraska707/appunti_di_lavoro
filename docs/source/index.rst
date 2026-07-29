@@ -12,7 +12,7 @@ Contents
 
    soluzioni_problematiche
    comandi_cluster
-   sql_query_utili
    comandi_docker_postgres
-   guida_installazione_miniconda
+   sql_query_utili
    tts
+   guida_installazione_miniconda
