@@ -399,23 +399,26 @@ Please note that in order to obtain 5 TB of storage, once the project is created
 **Additional notes**  
 The applicant requests that priority be given to resources for Leonardo Booster.
 
-### Iscra C:  DE FILIPPO (HP10CDX5I8)
+### Iscra C: DE FILIPPO (HP10CDX5I8)
 **Motivation**  
 The proposal does not indicate the number of hours required for the project, making it impossible to assess.
 
-### Iscra C:  PAGANI (HP10C4PQ09)
+### Iscra C: PAGANI (HP10C4PQ09)
 **Motivation**  
 The project is acceptable, the requested computational resources are within the limits of the assigned project class and the required software is already available on Leonardo.
 For future applications, we would appreciate at least a brief explanation of how the estimated resources were determined.
 
-### Iscra C:  RAGAGNIN (HP10CA75OD)
+### Iscra C: RAGAGNIN (HP10CA75OD)
 **Motivation**  
 Project ok, the requested computational resources fall within the allowed limits, and the required software is already available on Leonardo.
 To obtain the requested storage, once the project has been created, please contact superc@cineca.it to request an extension from the default 1 TB to 15 TB. Please note that allocation of additional storage is subject to availability at the time of the request.
 
-### Iscra C:  MORSHED (HP10CHEXFS)  1 Luglio
+### Iscra C: MORSHED (HP10CHEXFS)  1 Luglio
 **Motivation**  
 The project is acceptable, and the requested computational resources are within the limits of the assigned project class. However, it would be appreciated even a rough explanation for the requested budget, such as number of jobs, size and walltime of the job. Please keep this in mind for future applications.
+
+### Iscra C: VALLÉS-PÉREZ (HP10CC37V9)
+**Motivation**  
 
 ## ISCRA D
 
