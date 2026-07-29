@@ -34,8 +34,8 @@ intersphinx_disabled_domains = ['std']
 templates_path = ['_templates']
 
 exclude_patterns = [
-    'euhpc',
-    'iscra',
+    'euhpc.md',
+    'iscra.md',
 ]
 
 # -- Options for HTML output
