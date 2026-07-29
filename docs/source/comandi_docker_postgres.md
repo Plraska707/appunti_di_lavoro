@@ -19,7 +19,7 @@ sudo docker ps -a
 **Fermare più container con nomi simili:**  
 docker stop $(docker container ls -q --filter name=prod-dp*)
 
-# Postgres
+## Postgres
 **accesso al container di airflow:**  
 docker exec -it dev310-airflow-apiserver-1 /bin/bash
 
