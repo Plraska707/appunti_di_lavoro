@@ -18,11 +18,8 @@ Contents
 
 .. toctree::
 
-   usage
-   api
    soluzioni_problematiche
    comandi_cluster
-   brutto
    iscra
    euhpc
    tts
