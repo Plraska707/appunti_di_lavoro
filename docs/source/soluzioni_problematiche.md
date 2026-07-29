@@ -1,5 +1,5 @@
-# Soluzioni problematiche
-
+Soluzioni problematiche
+========================
 ## Licenze
 
 ### Licenze valide per tutti
