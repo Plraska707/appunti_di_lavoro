@@ -1,12 +1,12 @@
-TTS
-=====
-# RT5 - Ricezione e Invio email
+# TS
 
-## README.md
+## RT5 - Ricezione e Invio email
+
+### README.md
 Il README.md è presente al percorso:  
 /root/ms365-application-permissions/README.md
 
-## Impostazioni
+### Impostazioni
 
 **RT_SiteConfig.pm**
 
@@ -64,7 +64,7 @@ dentro msmtprc viene indicato
 per la verifica della password (o token).  
 Questo script ha permessi 0755 usa il file di configurazione **/etc/rt/ms365.json**
 
-## Crontab
+### Crontab
 
 In crontab va aggiunta la seguente riga per trasferire le email arrivate
 alla casella **tts-micro-devel@cineca.it** a RT: :
@@ -72,10 +72,10 @@ alla casella **tts-micro-devel@cineca.it** a RT: :
     */2 * * * * /usr/local/bin/wsgetmail --config /mnt/workdir/request-tracker/rt5/etc/wsgetmail.json
 
 
-## File e permessi
+### File e permessi
 
 | File                          | Permessi | Proprietario |
-|-------------------------------|----------|              |
+|-------------------------------|----------|--------------|
 | /usr/local/bin/sendmail-msmtp | 0755     |              |
 | /etc/msmtprc                  | 0600     | root:root    |
 | /var/log/msmtp.log            | 0640     | root:root    |
