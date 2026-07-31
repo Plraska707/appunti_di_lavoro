@@ -147,3 +147,172 @@ Se ci sono problemi dopo il riavvio, assicurarsi che:
   Se così non fosse, lanciare questi comandi:
   - chown -R www-data:www-data /mnt/workdir/request-tracker/rt5/var/mason_data
   - chmod -R u+rwX /mnt/workdir/request-tracker/rt5/var/mason_data
+
+
+## README sul server
+Questa è una versione modificata (sperabilmente corretta) del README.md presente in /root/ms365-application-permissions/README.md
+
+### SCHEMA
+
+la App Registration possiede solamente:
+- IMAP.AccessAsApp
+- SMTP.SendAsApp
+
+con queste permission si sta usando il modello "Application Permissions (client credentials grant)." 
+
+In questo caso:
+
+- non esiste alcun utente che fa login
+- non esiste refresh token
+- non esiste offline_access
+- il token viene ottenuto usando client_id + client_secret (oppure certificato)
+- il token viene richiesto con scope https://outlook.office365.com/.default
+
+Lo schema:
+
+[indicazioni](https://github.com/MicrosoftDocs/office-developer-exchange-docs/blob/main/docs/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth.md)
+
+```
+RT5
+ ↓  SendMailPath
+msmtp
+ ↓  password-eval  
+get-ms365-token (token helper)
+ ↓  Oauth2 Client Credentials
+POST https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token (Microsoft Entra ID)
+
+grant_type=client_credentials
+client_id=...
+client_secret=...
+scope=https://outlook.office365.com/.default
+
+ ↓
+access token
+ ↓
+SMTP AUTH XOAUTH2
+ ↓
+smtp.office365.com:587
+ ↓
+Exchange Online
+```
+
+### TOKEN HELPER
+
+#### create: 
+
+/usr/local/bin/get-ms365-token.py 
+
+#### semplificato diventa:
+
+password-eval.py
+
+è questo che deve essere usato!
+
+#### environment variables:
+
+```
+export M365_TENANT_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+export M365_CLIENT_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+export M365_CLIENT_SECRET="your-client-secret-value"
+export M365_SMTP_USER="rt-noreply@yourdomain.com"
+### export M365_REFRESH_TOKEN_FILE="/var/lib/rt-m365/refresh_token.txt"
+export M365_TOKEN_CACHE_FILE="/var/lib/rt-m365/token.json"
+```
+
+
+#### final configuration
+
+cretaed /usr/local/bin/get-ms365-token.py  
+chmod 0755 /usr/local/bin/get-ms365-token.py  
+created /etc/rt/ms365.json
+
+
+### MSMTP
+
+#### msmtp config
+
+- create /etc/msmtprc:
+
+```
+defaults
+
+auth            on
+tls             on
+tls_starttls    on
+timeout         60
+
+tls_trust_file  /etc/ssl/certs/ca-certificates.crt
+
+logfile         /var/log/msmtp.log
+
+account m365
+
+host smtp.office365.com
+port 587
+
+from tts-micro-devel@cineca.it
+user tts-micro-devel@cineca.it
+
+auth xoauth2
+
+passwordeval "/usr/local/bin/get-ms365-token.py"
+
+account default : m365
+
+```
+
+- set permissions:
+
+```
+sudo chown root:root /etc/msmtprc
+sudo chmod 0600 /etc/msmtprc
+sudo touch /var/log/msmtp.log
+sudo chown root:root /var/log/msmtp.log
+sudo chmod 0640 /var/log/msmtp.log
+```
+
+
+
+#### Sendmail wrapper for RT
+
+Create /usr/local/bin/sendmail-msmtp:
+
+```
+#!/bin/sh
+exec /usr/bin/msmtp "$@"
+```
+
+make it executable:  
+sudo chmod 0755 /usr/local/bin/sendmail-msmtp
+
+#### RT 5 configuration:
+
+Create /opt/rt5/etc/RT_SiteConfig.d/50-mailer.pm or place the equivalent in RT_SiteConfig.pm:
+
+```
+Set($MailCommand,'sendmailpipe');
+Set($SendmailPath, '/usr/local/bin/sendmail-msmtp');
+
+# Optional but often useful:
+Set($CorrespondAddress, 'rt-noreply@yourdomain.com');
+Set($CommentAddress,    'rt-noreply@yourdomain.com');
+Set($FriendlyFromLineFormat, '"%s" <%s
+
+OR 
+
+Set($SendmailPath, '/usr/bin/msmtp');
+https://github.com/FireFart/rt-docker/blob/main/RT_SiteConfig.pm.example
+```
+
+
+### TESTING
+
+Before testing RT, confirm that msmtp can send mail!
+
+```
+printf 'Subject: test from msmtp\n\nhello\n' | /usr/bin/msmtp -a m365 tts-micro-devel@cineca.it
+```
+
+https://kifarunix.com/configure-request-tracker-rt-to-send-mails-using-msmtp-via-office-365-relay/#google_vignette
+
+

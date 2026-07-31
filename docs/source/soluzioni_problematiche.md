@@ -962,3 +962,32 @@ Se arriva una richiesta di 2FA da un utente EFGW (o altro per cui conviene contr
 - `/afs/eufus.eu/user/g/`
 
 e controllare che ci sia l'utenza in questione.
+
+## Collegarsi a nodo compute da VSCode
+
+Dal nodo di login di Leonardo lancia un interactive job con le risorse che ti servono, ad esempio: 
+``` 
+srun -N1 -n1 --ntasks-per-node=1 -A IscrB_MMFM --time=0:30:00 --partition=boost_usr_prod --qos=bost_qos_dbg --pty /bin/bash
+```
+
+e prendi nota del nodo a cui ti colleghi, in questo caso il lrdn3456.
+
+nel file **.ssh/config** aggiungi
+```
+Host leonardo-login
+    HostName login.leonardo.cineca.it
+    User amarcell
+Host leonardo-compute
+    User amarcell
+    HostName lrdn3456
+    ProxyJump leonardo-login
+```
+
+A questo punto per fare login da terminale si può lanciare  
+ssh leonardo-compute  
+che chiederà la password HPC
+
+Da VSCode  
+- premere il tasto F1
+- scrivere "Remote-SSH: Connect to Host"
+- selezionare la connessione leonardo-compute
