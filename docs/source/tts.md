@@ -1,10 +1,15 @@
 # TTS
 
+La **documentazione** è presente al percorso:  
+/mnt/workdir/documentation/TTS.wiki
+
 ## RT5 - Ricezione e Invio email
 
 ### README.md
-Il README.md è presente al percorso:  
+Il README.md di questa parte è presente al percorso:  
 /root/ms365-application-permissions/README.md
+
+[Qui](tts.md#readme-sul-server) c'è la mia versione ripulita.
 
 ### Impostazioni
 

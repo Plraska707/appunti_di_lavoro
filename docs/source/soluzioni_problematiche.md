@@ -103,6 +103,9 @@ e impostare i limiti di associazione così da limitare il numero di nodi utilizz
 
 - `sacctmgr modify account where account=DestE_330_26_0 cluster=leonardo set MaxWall=24:00:00 MaxTRES=node=256 GrpTRES=node=256`
 
+rimuovere infine l'associazione dalla propria utenza
+- `sacctmgr modify user amarcell where cluster=leonardo account=cin_staff set qos-=qos_deste`
+
 ## Comando Datamover tra due cluster
 
 Qualora la copia tra due cluster non funzioni nella maniera più semplice, provare con questo comando:
@@ -991,3 +994,21 @@ Da VSCode
 - premere il tasto F1
 - scrivere "Remote-SSH: Connect to Host"
 - selezionare la connessione leonardo-compute
+
+## Verifica iscritti newsletter/mailing list
+Per verificare se un utente è iscritto alla nostra newsletter:
+- collegarsi a [questo sito](https://list.cineca.it/cgi-bin/mailman/admindb/hpc-news) per gli utenti normali, a [questo](https://list.cineca.it/cgi-bin/mailman/admin/hpc-news-efgw) per quelli EFGW
+- premere su **Hpc-news administrative interface**
+- accedere con la password salvata su KeePass (l'utente non serve)
+- premere su Membership Management
+- cercare l'indirizzo email
+
+Fare logout una volta concluso
+
+### Cancellarsi dalla mailing list
+Per cancellarsi dalla mailing list è sufficiente inviare una email all'indirizzo  
+hpc-news-userdb-leave@list.cineca.it  
+se si è stati iscritti automaticamente tramite UserDB.
+
+Se invece ci si è iscritti tramite hpc-news-join@list.cineca.it, va inviata una eamil a  
+hpc-news-leave@list.cineca.it
