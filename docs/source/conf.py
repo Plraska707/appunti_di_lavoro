@@ -50,5 +50,7 @@ html_theme_options = {
     "titles_only": False,
 }
 
+myst_heading_anchors = 3
+
 # -- Options for EPUB output
 epub_show_urls = 'footnote'

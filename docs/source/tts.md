@@ -9,7 +9,7 @@ La **documentazione** è presente al percorso:
 Il README.md di questa parte è presente al percorso:  
 /root/ms365-application-permissions/README.md
 
-[Qui](tts.md#readme-sul-server) c'è la mia versione ripulita.
+[Qui](#readme-sul-server) c'è la mia versione ripulita.
 
 ### Impostazioni
 
@@ -152,7 +152,6 @@ Se ci sono problemi dopo il riavvio, assicurarsi che:
   Se così non fosse, lanciare questi comandi:
   - chown -R www-data:www-data /mnt/workdir/request-tracker/rt5/var/mason_data
   - chmod -R u+rwX /mnt/workdir/request-tracker/rt5/var/mason_data
-
 
 ## README sul server
 Questa è una versione modificata (sperabilmente corretta) del README.md presente in /root/ms365-application-permissions/README.md
