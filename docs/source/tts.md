@@ -170,7 +170,7 @@ In questo caso:
 
 Lo schema:
 
-[indicazioni](https://github.com/MicrosoftDocs/office-developer-exchange-docs/blob/main/docs/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth.md)
+[sito di riferimento](https://github.com/MicrosoftDocs/office-developer-exchange-docs/blob/main/docs/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth.md)
 
 ```
 RT5
