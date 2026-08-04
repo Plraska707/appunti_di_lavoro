@@ -308,18 +308,18 @@ Inviare poi una richiesta di questo tipo ai sistemisti:
 
 **dovrebbero essere corrette**
 
-- `standard hours = core hours / FACTOR`
-- `core hours = local hours` (da verificare)
-- `node hours = core hours * num core per nodo`
-- `core hours = node hours / num core per nodo`
-- `node hour = GPU hour * num di GPU per nodo`
-- `GPU hour = node hour / num di GPU per nodo`
-- `core hours = GPU hour * num di GPU per nodo / num core per nodo`
-- `GPU hour = core hours * num core per nodo / num di GPU per nodo`
+- `std-h = core-h / FACTOR`
+- `core-h = local hours` (da verificare)
+- `node-h = core-h * num core per nodo`
+- `core-h = node-h / num core per nodo`
+- `node-h = GPU-h * num di GPU per nodo`
+- `GPU-h = node-h / num di GPU per nodo`
+- `core-h = GPU-h * num di GPU per nodo / num core per nodo`
+- `GPU-h = core-h * num core per nodo / num di GPU per nodo`
 
 **ATTENZIONE**: l'unica equivalenza di cui sono sicuro al 100% è:
 
-- `STD = GPUH * 8`
+- `std-h = GPU-h * 8`
 
 per Leonardo Booster e viene fuori da:
 
