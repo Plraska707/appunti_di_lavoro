@@ -306,6 +306,8 @@ Inviare poi una richiesta di questo tipo ai sistemisti:
 
 ## Conversione tra diverse espressioni delle ore
 
+**dovrebbero essere corrette**
+
 - `standard hours = core hours / FACTOR`
 - `core hours = local hours` (da verificare)
 - `node hours = core hours * num core per nodo`
@@ -315,13 +317,18 @@ Inviare poi una richiesta di questo tipo ai sistemisti:
 - `core hours = GPU hour * num di GPU per nodo / num core per nodo`
 - `GPU hour = core hours * num core per nodo / num di GPU per nodo`
 
-**ATTENZIONE**: ci sono errori sul calcolo delle GPU/h, questa è l'unica equivalenza di cui sono sicuro:
+**ATTENZIONE**: l'unica equivalenza di cui sono sicuro al 100% è:
 
 - `STD = GPUH * 8`
 
-Vale per Leonardo Booster e viene fuori da:
+per Leonardo Booster e viene fuori da:
 
-- `std-h = GPU-h * num core / num GPU`
+- `std-h = GPU-h/FACTOR * num core / num GPU`
+  
+dove per Leonardo Booster:
+- FACTOR = 1
+- num core = 32
+- num GPU = 4
 
 ## Numero utenti attivi sui cluster
 
