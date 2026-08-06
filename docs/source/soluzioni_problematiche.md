@@ -4,6 +4,8 @@ Soluzioni problematiche
 
 ### Licenze valide per tutti
 
+[Guida interna](https://wiki.u-gov.it/confluence/display/SCAIIN/Licenze%3A+gestione+operativa)
+
 Nei casi in cui abbiamo delle licenze valide per tutti, è sufficiente aggiornare il file di licenza presente sul cluster usando l'utenza `propro01` (ad esempio con NAG).
 
 - Si va sul cluster.
@@ -19,7 +21,7 @@ Altre licenze sono gestite tramite license manager e in questi casi vanno messi 
 Se la licenza è installata su un license server di un'università, queste sono le informazioni di cui necessitiamo per effettuare il collegamento:
 
 - indirizzo IP (pubblico) e porta su cui è in ascolto il license manager
-- apertura del firewall del license server da parte dell'IT dell’università verso gli IP del nostro cluster Cineca (una volta chiarito quale cluster, inviare la lista di IP)
+- apertura del firewall del license server da parte dell'IT dell’università verso gli IP del nostro cluster Cineca (una volta chiarito quale cluster, inviare la lista di IP consultabile [qui](https://wiki.u-gov.it/confluence/display/SCAIIN/Licenze%3A+gestione+operativa#Licenze:gestioneoperativa-Secondopasso))
 - firma di un documento di esonero da parte dell'intestatario della licenza
 
 Per verificare la connessione con i server di licenza lanciare comandi di questo tipo:
@@ -31,7 +33,7 @@ Per verificare la connessione con i server di licenza lanciare comandi di questo
 
 Caricare prima il modulo **superc** e, se necessario, lanciare i comandi da VM hpcsupport.
 
-La nuova connessione va anche registrata sulla [tabella delle licenze](https://wiki.u-gov.it/confluence/pages/viewpage.action?spaceKey=SCAIIN&title=Licenze%3A+gestione+operativa#Licenze:gestioneoperativa-2.2Licenze).
+La nuova connessione va anche registrata sulla [tabella delle licenze](https://wiki.u-gov.it/confluence/display/SCAIIN/Licenze%3A+gestione+operativa#Licenze:gestioneoperativa-2.2Licenze).
 
 Il ticket [#48000](https://tts.hpc.cineca.it/Ticket/Display.html?id=48000) ha un esempio per Ansys, insieme alla [issue](https://jira.u-gov.it/jira/servicedesk/customer/portal/42/SDHPCSY-42107) in cui chiedo di mettere l'indirizzo in whitelist.
 
