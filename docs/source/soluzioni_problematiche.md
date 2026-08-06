@@ -1021,3 +1021,11 @@ se si è stati iscritti automaticamente tramite UserDB.
 
 Se invece ci si è iscritti tramite hpc-news-join@list.cineca.it, va inviata una eamil a  
 hpc-news-leave@list.cineca.it
+
+## Certificati di durata superiore alle 12 ore
+
+Per scaricare un certificato che valga più di 12 ore, è possibile usare la flag --not-after.  
+Quindi il comando diventa:
+```
+step ssh login 'email' --provisioner cineca-hpc --not-after 48h
+```
