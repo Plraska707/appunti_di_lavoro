@@ -123,8 +123,11 @@ Questi quelli attualmente installati:
 - RT::Extension::AutomaticAssignment --> per RT6 va bene l'ultima versione, per RT5 la 1.X più recente; necessita della password del db
 - RT::Extension::QuickAssign --> disponibile solo per RT4 e RT5; magari la RT6 ha già questa funzionalità
 - RT::Extension::QuickUpdate --> disponibile solo per RT4 e RT5; magari la RT6 ha già questa funzionalità
+- RT::Extension::PreviewInSearch --> per RT6 va bene l'ultima versione, per RT5 la 0.X più recente
 
 QuickAssign e QuickAssign forse sono ridondanti
+
+FormTools è potenzialmente rivoluzionario, dovremmo cambiare completamente il modo in cui gli utenti aprono i ticket, ma se dovesse essere fattibile, ci aiuterebbe molto.
 
 ### Istruzioni installazione
 Per installare un plugin:
@@ -133,7 +136,7 @@ Per installare un plugin:
 (non fondamentale, ma meglio fissare una cartella)
 - assicurarsi di avere /mnt/workdir/request-tracker/rt5 come RTHOME:  
  export RTHOME=/mnt/workdir/request-tracker/rt5
-- da metacpan copiare il link del download (assicurarsi che la versione sia compatibile)
+- da [metacpan](https://metacpan.org/) copiare il link del download (assicurarsi che la versione sia compatibile)
 - wget `<link>`
 - tar xzf `<file.tar.gz>'
 - cd cartella
@@ -324,7 +327,11 @@ https://kifarunix.com/configure-request-tracker-rt-to-send-mails-using-msmtp-via
 ## Software TTS
 
 Al percorso **/mnt/workdir/request-tracker/rt5/sbin** sono presenti i vari software utili per gestire TTS e il suo DB:
-- rt-attributes-viewer
+<details>
+<summary>lista software</summary>
+<br>
+
+- rt-attributes-viewer  
 - rt-clean-attributes
 - rt-clean-sessions
 - rt-clean-shorteners
@@ -353,6 +360,7 @@ Al percorso **/mnt/workdir/request-tracker/rt5/sbin** sono presenti i vari softw
 - rt-validate-aliases
 - rt-validator
 - standalone_httpd
+</details>
 
 Molti possono sia essere usati sia via CLI che tramite GUI
 
@@ -362,18 +370,18 @@ Quelli che ho visto sono:
 - **rt-setup-fulltext-index**: va messo in cron per poter fare delle ricerche full-text
 - **rt-externalize-attachments**: serve a traferire da DB a filesystem gli allegati che ci vengono mandati; utile quando si deve fare un po' di spazio
 
+## Cose varie
+
 **!!NON TROVO PIÙ LA WIKI INTERNA, DOV'È FINITA?!!**
 
-## Cose varie
-Vale la pena provare ad installare questo plugin?
+Vale la pena provare ad installare questo plugin?  
 https://github.com/NETWAYS/rt-extension-searchresult
 
-Capire come automatizzare le task su RT, ad esempio portare automaticamente i ticket in first dopo tot tempo
+Capire come automatizzare le task su RT, ad esempio portare automaticamente i ticket in first dopo tot tempo  
+https://docs.bestpractical.com/rt/6.0.2/automating_rt.html
 
 Creare un form (plugin FormTools) e vedere come funziona.  
 Credo possa essere rivoluzionario o completamente inutile:  
-https://requesttracker.com/rt-formtools/
+https://requesttracker.com/rt-formtools/  
 **far vedere a Susana**
-
-Provare ad installare questo plugin: https://metacpan.org/pod/RT::Extension::PreviewInSearch
 
