@@ -128,6 +128,7 @@ QuickAssign e QuickAssign forse sono ridondanti
 
 ### Istruzioni installazione
 Per installare un plugin:
+- accedere con root (sudo -i)
 - spostarsi in /mnt/workdir/request-tracker/rt5
 (non fondamentale, ma meglio fissare una cartella)
 - assicurarsi di avere /mnt/workdir/request-tracker/rt5 come RTHOME:  
@@ -319,4 +320,60 @@ printf 'Subject: test from msmtp\n\nhello\n' | /usr/bin/msmtp -a m365 tts-micro-
 
 https://kifarunix.com/configure-request-tracker-rt-to-send-mails-using-msmtp-via-office-365-relay/#google_vignette
 
+
+## Software TTS
+
+Al percorso **/mnt/workdir/request-tracker/rt5/sbin** sono presenti i vari software utili per gestire TTS e il suo DB:
+- rt-attributes-viewer
+- rt-clean-attributes
+- rt-clean-sessions
+- rt-clean-shorteners
+- rt-dump-initialdata
+- rt-dump-metadata
+- rt-email-dashboards
+- rt-email-digest
+- rt-email-expiring-auth-tokens
+- rt-email-group-admin
+- rt-externalize-attachments
+- rt-fulltext-indexer
+- rt-importer
+- rt-ldapimport
+- rt-munge-attachments
+- rt-passwd
+- rt-preferences-viewer
+- rt-search-attributes
+- rt-serializer
+- rt-server
+- rt-server.fcgi
+- rt-session-viewer
+- rt-setup-database
+- rt-setup-fulltext-index
+- rt-shredder
+- rt-test-dependencies
+- rt-validate-aliases
+- rt-validator
+- standalone_httpd
+
+Molti possono sia essere usati sia via CLI che tramite GUI
+
+Quelli che ho visto sono:
+- **rt-shredder**: pulisce i dati dal DB (Admin --> Tools)
+- **rt-clean-sessions**: rimuove le vecchie sessioni degli utenti
+- **rt-setup-fulltext-index**: va messo in cron per poter fare delle ricerche full-text
+- **rt-externalize-attachments**: serve a traferire da DB a filesystem gli allegati che ci vengono mandati; utile quando si deve fare un po' di spazio
+
+**!!NON TROVO PIÙ LA WIKI INTERNA, DOV'È FINITA?!!**
+
+## Cose varie
+Vale la pena provare ad installare questo plugin?
+https://github.com/NETWAYS/rt-extension-searchresult
+
+Capire come automatizzare le task su RT, ad esempio portare automaticamente i ticket in first dopo tot tempo
+
+Creare un form (plugin FormTools) e vedere come funziona.  
+Credo possa essere rivoluzionario o completamente inutile:  
+https://requesttracker.com/rt-formtools/
+**far vedere a Susana**
+
+Provare ad installare questo plugin: https://metacpan.org/pod/RT::Extension::PreviewInSearch
 
