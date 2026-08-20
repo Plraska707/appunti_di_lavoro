@@ -715,19 +715,19 @@ nslookup data.leonardo.cineca.it
 Se un utente richiede di usare Matlab, basta aprire una issue ai sistemisti chiedendo di aggiungerlo ai gruppi `matlab` e `cinmat`.
 
 Oggetto:
-
-> Aggiunta utente a gruppi matlab e cinmat
-
+```
+Aggiunta utente a gruppi matlab e cinmat
+```
 Corpo:
-
-> Ciao,  
-> vi chiedo di aggiungere l’utente  
-> XXX  
-> ai gruppi matlab e cinmat.  
->  
-> Grazie,  
-> Attilio
-
+```
+Ciao,  
+vi chiedo di aggiungere l’utente  
+XXX  
+ai gruppi matlab e cinmat.  
+ 
+Grazie,  
+Attilio
+```
 ## Aggiunta qos a utenti o account
 
 Il comando generale per aggiungere una qos a un account è:
@@ -1029,3 +1029,7 @@ Quindi il comando diventa:
 ```
 step ssh login 'email' --provisioner cineca-hpc --not-after 48h
 ```
+
+## Richieste progetti Geo-INQUIRE
+
+Per richieste di estensioni che riguardano questo tipo di progetti, chiedere di aggiungere in Cc Giuseppe Trotta (g.trotta@cineca.it) e Piero Lanucara (p.lanucara@cineca.it) e chiedere la loro approvazione.
