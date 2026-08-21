@@ -369,6 +369,58 @@ Quelli che ho visto sono:
 - **rt-clean-sessions**: rimuove le vecchie sessioni degli utenti
 - **rt-setup-fulltext-index**: va messo in cron per poter fare delle ricerche full-text
 - **rt-externalize-attachments**: serve a traferire da DB a filesystem gli allegati che ci vengono mandati; utile quando si deve fare un po' di spazio
+- 
+## Da FIRST a SECOND
+Per spostare automaticamente i ticket dalal coda **HPC-US-FIRST** alla **HPC-US-SECOND** è possible usare **rt-crontool**, uno strumento che effettua delle query e compie delle azioni, associandolo a **cron** per consentirne l'esecuzione.
+
+Nel nostro caso, non avendo una Action che consenta il cambiamento della coda, va prima creata.
+
+Per farlo, andare al percorso (crearlo se non c'è):  
+/mnt/workdir/request-tracker/rt5/local/lib/RT/Action  
+e creare il file SetQueue.pm così composto:
+
+```
+package RT::Action::SetQueue;
+use base 'RT::Action';
+use strict;
+use warnings;
+
+sub Describe {
+    my $self = shift;
+    return (ref $self . " will set a ticket's queue to the argument provided.");
+}
+
+sub Prepare {
+    my $self = shift;
+    return 1;
+}
+
+sub Commit {
+    my $self = shift;
+    my $result = $self->TicketObj->SetQueue($self->Argument);
+    unless ($result) {
+        $self->TransactionObj->Abort;
+        return 0;
+    }
+    return 1;
+}
+
+1;
+
+```
+Il comando da usare con rt-crontool sarà qualcosa del genere:
+
+```
+/mnt/workdir/request-tracker/rt5/bin/rt-crontool \
+  --search RT::Search::FromSQL \
+  --search-arg "Queue='HPC-US-FIRST' AND (Status='new' OR Status='open') AND Created < '2 days ago'" \
+  --action RT::Action::SetQueue \
+  --action-arg "HPC-US-SECOND" \
+  --verbose
+```
+
+Questo va poi associato a cron.
+
 
 ## Cose varie
 
