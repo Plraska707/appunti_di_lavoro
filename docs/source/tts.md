@@ -369,7 +369,8 @@ Quelli che ho visto sono:
 - **rt-clean-sessions**: rimuove le vecchie sessioni degli utenti
 - **rt-setup-fulltext-index**: va messo in cron per poter fare delle ricerche full-text
 - **rt-externalize-attachments**: serve a traferire da DB a filesystem gli allegati che ci vengono mandati; utile quando si deve fare un po' di spazio
-- 
+  
+
 ## Da FIRST a SECOND
 Per spostare automaticamente i ticket dalal coda **HPC-US-FIRST** alla **HPC-US-SECOND** è possible usare **rt-crontool**, uno strumento che effettua delle query e compie delle azioni, associandolo a **cron** per consentirne l'esecuzione.
 
@@ -455,7 +456,7 @@ In questo modo, ogni giorno alle 19, vengono presi tutti i ticket in HPC-US-FIRS
 Vale la pena provare ad installare questo plugin?  
 https://github.com/NETWAYS/rt-extension-searchresult
 
-Capire come automatizzare le task su RT, ad esempio portare automaticamente i ticket in first dopo tot tempo  
+Capire come automatizzare le task su RT, ad esempio portare automaticamente i ticket in second dopo tot tempo  
 https://docs.bestpractical.com/rt/6.0.2/automating_rt.html
 
 Creare un form (plugin FormTools) e vedere come funziona.  
