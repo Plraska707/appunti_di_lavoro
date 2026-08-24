@@ -373,6 +373,20 @@ Quelli che ho visto sono:
 ## Da FIRST a SECOND
 Per spostare automaticamente i ticket dalal coda **HPC-US-FIRST** alla **HPC-US-SECOND** è possible usare **rt-crontool**, uno strumento che effettua delle query e compie delle azioni, associandolo a **cron** per consentirne l'esecuzione.
 
+In questo caso specifico, per spostare i ticket dalla coda FIRST alla SECOND, va creato un **Custom Field**
+
+![EscalateAt](../images/CF:EscalateAt.png "EscalateAt")
+
+che, per ogni nuovo ticket, verrà popolato con l'orario di fine della sua permanenza nella coda FIRST.
+
+Per far popolare questo campo, si usa uno Scrip
+
+![EscalationTime](../images/scrip_escalation_time.png "EscalationTime")
+
+che esegue [queste istrizioni](../escalationtime.pm) come *Custom action preparation code* e va associato (Applies to) alle code di interesse, in questo caso *TEST* e *HPC-US-FIRST*.
+
+Per eseguire il cambio di coda si usa poi rt-crontool.
+
 Nel nostro caso, non avendo una Action che consenta il cambiamento della coda, va prima creata.
 
 Per farlo, andare al percorso (crearlo se non c'è):  
@@ -408,18 +422,30 @@ sub Commit {
 1;
 
 ```
-Il comando da usare con rt-crontool sarà qualcosa del genere:
+Il comando da usare con rt-crontool è questo:
 
 ```
 /mnt/workdir/request-tracker/rt5/bin/rt-crontool \
-  --search RT::Search::FromSQL \
-  --search-arg "Queue='HPC-US-FIRST' AND (Status='new' OR Status='open') AND Created < '2 days ago'" \
-  --action RT::Action::SetQueue \
-  --action-arg "HPC-US-SECOND" \
-  --verbose
+    --search RT::Search::FromSQL \
+    --search-arg "Queue='HPC-US-FIRST' AND (Status='new' OR Status='open') AND CF.{EscalateAt} <= 'now'" \
+    --action RT::Action::SetQueue \
+    --action-arg "HPC-US-SECOND" \
+    --verbose
 ```
 
+Per effettuare sempliemente una ricerca, usare  
+--action RT::Action  
+invece di  
+--action RT::Action::SetQueue
+e togliere qualsiasi action-arg.
+
 Questo va poi associato a cron.
+
+```
+0 19 * * * /mnt/workdir/request-tracker/rt5/bin/rt-crontool --search RT::Search::FromSQL --search-arg "Queue='HPC-US-FIRST' AND (Status='new' OR Status='open') AND CF.{EscalateAt} <= 'now'" -action RT::Action::SetQueue --action-arg "HPC-US-SECOND" --verbose
+```
+
+In questo modo, ogni giorno alle 19, vengono presi tutti i ticket in HPC-US-FIRST con EscalationAt già passato, e vengono spostati in HPC-US-SECOND.
 
 
 ## Cose varie
