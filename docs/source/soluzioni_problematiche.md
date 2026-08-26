@@ -33,9 +33,22 @@ Per verificare la connessione con i server di licenza lanciare comandi di questo
 
 Caricare prima il modulo **superc** e, se necessario, lanciare i comandi da VM hpcsupport.
 
-La nuova connessione va anche registrata sulla [tabella delle licenze](https://wiki.u-gov.it/confluence/display/SCAIIN/Licenze%3A+gestione+operativa#Licenze:gestioneoperativa-2.2Licenze).
+**La nuova connessione va anche registrata sulla [tabella delle licenze](https://wiki.u-gov.it/confluence/display/SCAIIN/Licenze%3A+gestione+operativa#Licenze:gestioneoperativa-2.2Licenze).**
 
 Il ticket [#48000](https://tts.hpc.cineca.it/Ticket/Display.html?id=48000) ha un esempio per Ansys, insieme alla [issue](https://jira.u-gov.it/jira/servicedesk/customer/portal/42/SDHPCSY-42107) in cui chiedo di mettere l'indirizzo in whitelist.
+
+#### Micro-spiegazione
+
+Normalmente non ci si può collegare al license server dai nodi di login perché il firewall dell'utene non è stato aperto verso le porte del license server.  
+Dopo l'apertura delle porte, lanciando  
+`telnet <ip> <porta>`  
+oppure  
+`lmutil lmstat -a -c <porta>@<ip>`  
+si dovrebbe già essere in grado di collegarsi (*solo dai nodi di login*).
+
+La richiesta di whiteslist fatta ai sistemisti serve a creare una route che consente di collegarsi al license server anche dai nodi di calcolo.
+
+Se un utente ha problemi a collegarsi al license server e la connessione fallisce già dai nodi di logi, allora il problema è la mancata apertura del firewall verso le porte.
 
 ## Propro01
 
