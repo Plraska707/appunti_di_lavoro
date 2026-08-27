@@ -392,9 +392,16 @@ Rispondere con qualcosa del genere:
 
 ## Richiesta NON eliminazione WORK progetto Closed
 
-Dopo 6 mesi dalla scadenza di un progetto, questo passa in stato `Closed` e la WORK viene cancellata.
+Dopo 6 mesi dalla scadenza di un progetto, questo passa prima in stato [Frozen](#progetti-frozen) e poi in `Closed` e la WORK viene cancellata.
 
 Se un utente ci chiede altro tempo per recuperare i dati, scrivere subito ai sistemisti chiedendo di non eliminare la WORK e, se siamo ancora in tempo, procedere con l’aumento dell’`ExpirationDelay` di un ulteriore mese.
+
+Esempio di messaggio su Teams:
+```
+c'è un utente che chiede se è ancora recuperabile la WORK per il progetto EUHPC_B27_009 su Leonardo Booster che è in stato Closed da ieri. È troppo tardi?
+```
+
+Altrimenti aprire un ticket come [questo](https://jira.u-gov.it/jira/servicedesk/customer/portal/42/SDHPCSY-41956).
 
 ## Errori OOM
 
@@ -538,6 +545,21 @@ Questi sono i passaggi:
 - l'utente effettua l'accesso a UserDB dove carica un documento d'identità (ricordarsi di marcare **UploadDocID**)
 - verificare l'identità ed eventualmente inviare un link 2FA
 - cancellare il documento
+
+### Cambio email ex utente CINECA
+Se a dover accedere è un ex collega (in realtà sia che l'email vecchia sia cineca che lo sia quella nuova) la procedura da seguire è diversa.
+
+Il motivo è che se l'utente ha mail cineca viene mappato come utente interno e quindi sui cluster finisce in un ramo utenze diverso da quello degli utenti esterni.
+
+Il cambio mail da esterno a cineca e viceversa va trattato modificando la pagina UserDB vecchia in maniera tale da permettere all'utente di creare un profilo nuovo su UserDB.
+
+Sia che sia un ex collega o che sia un nuovo collega il profilo UserDB vecchio va messa:
+- Nazionalità = NoCountry
+- Nation of Birth = NoCountry
+- Stato = Blocked
+
+È bene anche verificare che la vecchia utenza non abbia progetti attivi così da evitare che l'utente possa accedere con due diversi username ai cluster.
+
 
 ## Cancellare documenti su UserDB
 
@@ -760,7 +782,7 @@ step ssh list --raw '<user_email>' | step ssh inspect
 ## Progetti Frozen
 
 C'è un nuovo stato per i progetti (sia HPC che Cloud): lo stato **Frozen**.  
-Lo stato si inserisce tra gli stati **Expired** e **Closed** e dura un paio di mesi.
+Lo stato si inserisce tra gli stati **Expired** e [**Closed**](#richiesta-non-eliminazione-work-progetto-closed) e dura un paio di mesi.
 
 L'idea è che, terminato il periodo di expiration delay, l'area WORK del progetto non venga subito cancellata ma venga bloccato l'accesso agli utenti, ad esempio mettendo owner e gruppo a `root`. Non potendo improvvisamente accedere ai propri dati, si spera che anche gli utenti sprovveduti (che non hanno prestato attenzione alle tante mail che gli abbiamo inviato) si sveglino e ci scrivano prima di perdere definitivamente i loro dati.  
 Una volta trascorsi i due mesi nello stato Frozen, passando allo stato Closed la cartella WORK viene cancellata definitivamente come prima.
