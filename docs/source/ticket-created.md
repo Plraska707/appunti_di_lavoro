@@ -16,7 +16,7 @@ Your ticket has been created successfully.
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const ticket = params.get("ticket");
+const ticket = params.get("ticket_id");  // <-- qui
 
 if (ticket) {
     document.getElementById("ticket-info").innerHTML =
