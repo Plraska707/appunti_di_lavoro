@@ -34,7 +34,7 @@ Per verificare la connessione con i server di licenza lanciare comandi di questo
 
 Caricare prima il modulo **superc** e, se necessario, lanciare i comandi da VM hpcsupport.
 
-**La nuova connessione va anche registrata sulla [tabella delle licenze](https://wiki.u-gov.it/confluence/display/SCAIIN/Licenze%3A+gestione+operativa#Licenze:gestioneoperativa-2.2Licenze).**
+**La nuova connessione va anche registrata sulla [tabella delle licenze](https://wiki.u-gov.it/confluence/display/SCAIIN/Licenze%3A+gestione+operativa#Licenze:gestioneoperativa-2.2Licenze) e sulla [lista degli IP in whitelist](https://wiki.u-gov.it/confluence/pages/viewpage.action?pageId=527663281).**
 
 Il ticket [#48000](https://tts.hpc.cineca.it/Ticket/Display.html?id=48000) ha un esempio per Ansys, insieme alla [issue](https://jira.u-gov.it/jira/servicedesk/customer/portal/42/SDHPCSY-42107) in cui chiedo di mettere l'indirizzo in whitelist.
 
