@@ -8,8 +8,20 @@
 </p>
 
 <p>
-<label>Username:</label><br>
-<input type="text" name="username">
+<label>Request group:</label><br>
+<select name="request_group" required>
+<option value="CINECA">CINECA</option>
+<option value="ISCRA">ISCRA</option>
+<option value="EuroHPC">EuroHPC</option>
+<option value="ICEI">ICEI</option>
+<option value="PRACE">PRACE</option>
+<option value="AGREEMENTS">AGREEMENTS</option>
+<option value="INDUSTRIAL">INDUSTRIAL</option>
+<option value="PROJECTS">PROJECTS</option>
+<option value="EUROfusion">EUROfusion</option>
+<option value="EUROfusion-GW">EUROfusion-GW</option>
+<option value="Other">Other</option>
+</select>
 </p>
 
 <p>
@@ -19,11 +31,18 @@
 
 <p>
 <label>Cluster:</label><br>
-<select name="cluster">
-<option value="Leonardo-Booster">Leonardo-Booster</option>
-<option value="Leonardo-DCGP">Leonardo-DCGP</option>
-<option value="G100">G100</option>
-<option value="Pitagora">Pitagora</option>
+<select name="cluster" required>
+<option value="LEONARDO">LEONARDO</option>
+<option value="LEONARDO-DCGP">LEONARDO-DCGP</option>
+<option value="GALILEO100">GALILEO100</option>
+<option value="PITAGORA-DCGP">PITAGORA-DCGP</option>
+<option value="PITAGORA-BOOST">PITAGORA-BOOST</option>
+<option value="EFGW">EFGW</option>
+<option value="CLOUD_CSL">CLOUD_CSL</option>
+<option value="GARDA">GARDA</option>
+<option value="MARCONI-SKL">MARCONI-SKL</option>
+<option value="PICO">PICO</option>
+<option value="Other">Other</option>
 </select>
 </p>
 
