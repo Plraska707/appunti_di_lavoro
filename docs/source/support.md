@@ -1,8 +1,6 @@
 # Request Support
 
-<form action="http://192.168.137.112:5000/</label><br>
-<input type="text" name="subject" required>
-</p>
+<form action="http://192.168.137.112:5000" method="POST">
 
 <p>
 <label>Subject:</label><br>
