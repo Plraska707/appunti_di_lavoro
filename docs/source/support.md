@@ -1,7 +1,5 @@
 # Request Support
 
-Compile the form 
-
 <form action="http://192.168.137.112:5000/submit" method="POST">
 
 <p>
@@ -40,5 +38,3 @@ Compile the form
 
 
 </form>
-
-or go [here](http://192.168.137.112:5000/)
