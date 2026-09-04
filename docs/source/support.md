@@ -1,6 +1,6 @@
 # Request Support
 
-<form action="https://your-flask-server/submitubject</label><br>
+<form action="http://192.168.137.112:5000/</label><br>
 <input type="text" name="subject" required>
 </p>
 
