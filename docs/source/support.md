@@ -1,4 +1,4 @@
-# Request Support
+# Simple Request Support
 
 <form action="https://your-flask-server/submitubject</label><br>
 <input type="text" name="subject" required>
