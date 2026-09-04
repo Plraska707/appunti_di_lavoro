@@ -52,6 +52,11 @@
 </p>
 
 <p>
+<label>Attachment:</label><br>
+<input type="file" name="attachment">
+</p>
+
+<p>
 <button type="submit">Create Ticket</button>
 </p>
 
