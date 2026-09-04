@@ -10,6 +10,7 @@ Contents
 
 .. toctree::
 
+   support
    soluzioni_problematiche
    comandi_cluster
    comandi_docker_postgres

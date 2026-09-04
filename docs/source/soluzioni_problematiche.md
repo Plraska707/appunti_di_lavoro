@@ -30,6 +30,7 @@ Per verificare la connessione con i server di licenza lanciare comandi di questo
 - `telnet pcdmavallonelic.polito.it 5053`
 - `rlmutil rlmstat -c 29000@pcdmavallonelic.polito.it -a`
 - `nmap pcdmavallonelic.polito.it -p 5053`
+- `lmutil lmstat -a -c porta@IP`
 
 Caricare prima il modulo **superc** e, se necessario, lanciare i comandi da VM hpcsupport.
 
