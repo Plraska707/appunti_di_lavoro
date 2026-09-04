@@ -1,6 +1,8 @@
 # Request Support
 
-<form action="http://192.168.137.112:5000" method="POST">
+Compile the form 
+
+<form action="http://192.168.137.112:5000/submit" method="POST">
 
 <p>
 <label>Subject:</label><br>
@@ -23,7 +25,7 @@
 <option value="Leonardo-Booster">Leonardo-Booster</option>
 <option value="Leonardo-DCGP">Leonardo-DCGP</option>
 <option value="G100">G100</option>
-<option value=Pitagora">Pitagora</option>
+<option value="Pitagora">Pitagora</option>
 </select>
 </p>
 
@@ -38,3 +40,5 @@
 
 
 </form>
+
+or go [here](http://192.168.137.112:5000/)
