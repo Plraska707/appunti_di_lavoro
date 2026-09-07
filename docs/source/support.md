@@ -1,6 +1,10 @@
 # Request Support
 
-<form action="http://192.168.137.111:5000/submit" method="POST" enctype="multipart/form-data">
+<form
+    action="http://192.168.137.111:5000/submit"
+    method="POST"
+    enctype="multipart/form-data"
+>
 
 <p>
 <label>Subject:</label><br>
