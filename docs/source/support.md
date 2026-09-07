@@ -53,7 +53,7 @@
 
 <p>
 <label>Attachment:</label><br>
-<input type="file" name="attachment">
+<input type="file" name="attachment" multiple>
 </p>
 
 <p>
