@@ -14,6 +14,7 @@
 <p>
 <label>Request group:</label><br>
 <select name="request_group" required>
+<option value="" disabled selected>Select a value</option>
 <option value="CINECA">CINECA</option>
 <option value="ISCRA">ISCRA</option>
 <option value="EuroHPC">EuroHPC</option>
@@ -36,6 +37,7 @@
 <p>
 <label>Cluster:</label><br>
 <select name="cluster" required>
+<option value="" disabled selected>Select a value</option>
 <option value="LEONARDO">LEONARDO</option>
 <option value="LEONARDO-DCGP">LEONARDO-DCGP</option>
 <option value="GALILEO100">GALILEO100</option>
