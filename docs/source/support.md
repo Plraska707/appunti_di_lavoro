@@ -12,6 +12,11 @@
 </p>
 
 <p>
+<label>Email:</label><br>
+<input type="email" name="email" required>
+</p>
+
+<p>
 <label>Request group:</label><br>
 <select name="request_group" required>
 <option value="" disabled selected>Select a value</option>
@@ -27,11 +32,6 @@
 <option value="EUROfusion-GW">EUROfusion-GW</option>
 <option value="Other">Other</option>
 </select>
-</p>
-
-<p>
-<label>Email:</label><br>
-<input type="email" name="email" required>
 </p>
 
 <p>
@@ -53,6 +53,16 @@
 </p>
 
 <p>
+<label>Username:</label><br>
+<input type="text" name="username">
+</p>
+
+<p>
+<label>Name Account:</label><br>
+<input type="text" name="account">
+</p>
+
+<p>
 <label>Description:</label><br>
 <textarea name="description" rows="10" cols="60" required></textarea>
 </p>
@@ -61,6 +71,11 @@
 <label>Attachment:</label><br>
 <input type="file" name="attachments" multiple>
 </p>
+
+<div style="display:none;">
+    <label>Website</label>
+    <input type="text" name="website">
+</div>
 
 <p>
 <button type="submit">Create Ticket</button>
