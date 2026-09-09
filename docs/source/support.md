@@ -63,7 +63,36 @@
 </p>
 
 <p>
-<button type="submit">Create Ticket</button>
-</p>
+<button type="button" id="createBtn">
+    Create Ticket
+</button></p>
+
+<div id="captcha-container" style="display:none; margin-top:10px;">
+    <div
+        class="cf-turnstile"
+        data-sitekey="0x4AAAAAAEtmvPTLLMtRaQYd"
+        data-callback="submitForm">
+    </div>
+</div>
 
 </form>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+
+<script>
+document.getElementById('createBtn').addEventListener('click', function() {
+
+    // Optional: validate required fields first
+    const form = document.querySelector('form');
+
+    if (!form.reportValidity()) {
+        return;
+    }
+
+    document.getElementById('captcha-container').style.display = 'block';
+});
+
+function submitForm(token) {
+    document.querySelector('form').submit();
+}
+</script>
