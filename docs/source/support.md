@@ -1,7 +1,7 @@
 # Request Support
 
 <form
-    action="http://192.168.137.35:5000/submit"
+    action="http://192.168.137.84:5000/submit"
     method="POST"
     enctype="multipart/form-data"
 >
@@ -58,7 +58,7 @@
 </p>
 
 <p>
-<label>Name Account:</label><br>
+<label>Account Name:</label><br>
 <input type="text" name="account">
 </p>
 
