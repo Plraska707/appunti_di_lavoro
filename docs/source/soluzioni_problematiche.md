@@ -1069,3 +1069,13 @@ step ssh login 'email' --provisioner cineca-hpc --not-after 48h
 ## Richieste progetti Geo-INQUIRE
 
 Per richieste di estensioni che riguardano questo tipo di progetti, chiedere di aggiungere in Cc Giuseppe Trotta (g.trotta@cineca.it) e Piero Lanucara (p.lanucara@cineca.it) e chiedere la loro approvazione.
+
+## Ansible Vault
+
+per visualizzare il contenuto di un vault su ansible, lanciare un comando del tipo: 
+```
+ansible-vault edit devel.yml --vault-password-file ../password.txt  
+```
+dove  
+**devel.yml** è il vault e  
+**password.txt** è il file con la password
