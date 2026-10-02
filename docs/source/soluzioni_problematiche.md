@@ -475,6 +475,8 @@ I build script dei software, dove sono indicate le istruzioni per installare un 
 Se un utente richiede di utilizzare Gaussian (o `g16`), è sufficiente aprire una issue e chiedere ai sistemisti di aggiungere l'utente nel gruppo `gaussian`.  
 Controllare anche che non sia già associato al gruppo.
 
+[Esempio di ticket](https://jira.u-gov.it/jira/servicedesk/customer/portal/42/SDHPCSY-47132)
+
 ## Controllare errori su nodo
 
 Quando ci sono errori e bisogna vedere i log dei nodi:
