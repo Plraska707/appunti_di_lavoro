@@ -1081,3 +1081,24 @@ ansible-vault edit devel.yml --vault-password-file ../password.txt
 dove  
 **devel.yml** è il vault e  
 **password.txt** è il file con la password
+
+## Ottenere chiavi ssh su nuovo ambiente
+
+- Creare chiave di criptazione Attilio lanciando:  
+generate_key.sh Attilio
+- Passare Attilio.pub ad Alberto che mi dà il file criptato con i segreti
+- Copiare il file secrets-...tar.gz.enc nella cartella secrets/
+- lanciare:  
+./decompress_encrypted.sh secrets-...tar.gz.Attilio.enc  
+per scompattare i segreti
+
+Per aggiornare i file di configurazione con i segreti:
+
+- creare un token da git da inserire in "backend_private.env"
+- controllare che i dati in "backend.env" relativi al progetto siano corretti
+- creare file clouds.yaml da Application Credentials su GAIA e copiarlo nella cartella tofu
+- lanciare:  
+backend_init
+- lanciare:  
+tofu apply -var-file infrastructure.tfvars
+
