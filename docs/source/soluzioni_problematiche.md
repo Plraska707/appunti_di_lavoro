@@ -250,7 +250,7 @@ Quando un utente richiede di utilizzare VASP su un cluster, bisogna:
 
 - chiedergli se ha una licenza VASP ed eventualmente di fornirne il numero
 - chiedere a Lorenzo Varrassi ~~Mariella Ippolito~~ di controllare che sia correttamente associato alla licenza, indicando l’email dell’utente e il numero della licenza
-- se è tutto ok, seguire le istruzioni su questa [pagina](https://wiki.u-gov.it/confluence/pages/viewpage.action?spaceKey=SCAIIN&title=Apps+with+restrict+use%3A+how+to+add+users)
+- se è tutto ok, seguire le istruzioni su questa [pagina](https://wiki.u-gov.it/confluence/display/SCAIIN/Apps+with+restrict+use%3A+how+to+add+users)
 
 ## Installazione da sorgente
 
