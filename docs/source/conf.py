@@ -21,7 +21,7 @@ extensions = [
     'sphinx_copybutton',
     ]
 
-myst_enable_extensions = ["strikethrough"]
+#myst_enable_extensions = ["strikethrough"]
 
 source_suffix = {
     ".rst": "restructuredtext",
