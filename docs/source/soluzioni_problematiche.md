@@ -1102,3 +1102,14 @@ backend_init
 - lanciare:  
 tofu apply -var-file infrastructure.tfvars
 
+## Creare nuovo db
+Per aggiungere un nuovo database postgres a mano (solo per i test, normalmente va fatto tramite ansible)
+- accedere ad uno dei nodi database (ssh database_0)
+- controllare quale dei 3 nodi è il Leader:  
+sudo -u postgres patronictl -c /etc/patroni/18-graphs_db.yml list  
+Il file di configurazione deve essere quello del server che ci interessa, in questo caso graphs_db
+ - andare sul nodo database indicato come Leader (e.g. ssh database_2)
+- accedere a postgres con l'utente postgres  
+sudo -u postgres psql -U postgres -p 5433 -d graphs
+- creare il db  
+CREATE DATABASE testdb OWNER airflow;
