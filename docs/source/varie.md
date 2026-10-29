@@ -10,3 +10,8 @@ Comando per eliminare tutti i file con un certo pattern, escluse le sottocartell
 ```
 find . -maxdepth 1 -type f -name 'dcgp*' ! -name 'dcgp-env-20261016T1510.csv' -print [-delete]
 ```
+
+Comando per cercare i file non vuoti, con pattern, in ordine temporale
+```
+find -maxdepth 1 -type f -name 'boost*' -size +0 -print | sort -n
+```
