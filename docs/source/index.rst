@@ -17,3 +17,4 @@ Contents
    sql_query_utili
    tts
    guida_installazione_miniconda
+   varie
