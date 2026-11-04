@@ -36,6 +36,31 @@ estrazione e somma dei valori della colonna 3
 - sacct -j <jobid> -o submitline%100  
 in caso di job interattivi lanciati con srun e che non hanno uno sbatch
 
+## Squeue
+
+- classifica numero di job diviso per utente:  
+squeue -h -o "%u" | sort | uniq -c | sort -nr
+- lista job con esplicitati jobid, utente, account e status:  
+squeue -h -o "%.18i %.15u %.20a %.10T"
+- lista job singolo utente:  
+squeue -u user -h -o "%.18i %.15u %.20a %.10T"
+
+### Lista placeholder:  
+```
+%i  JobID
+%u  User
+%a  Account
+%T  State
+%t  State abbreviato (R, PD, CG...)
+%j  Job name
+%P  Partition
+%D  Numero di nodi
+%C  Numero di CPU
+%M  Tempo utilizzato
+%l  Time limit
+%R  Reason / nodo assegnato
+```
+
 ## Sacctmgr 
 - sacctmgr show qos6/29/26 <nome_qos> (il nome è opzionale)  
 mostra tutte le info sulla qos indicata
