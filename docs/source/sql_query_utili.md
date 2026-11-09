@@ -64,3 +64,30 @@ FROM timescaledb_information.hypertables;
 ```
 SELECT * FROM timescaledb_information.chunks;
 ```
+
+## Quert db airflow
+
+Seleziona task fallite
+```
+select
+    dag_id,
+    task_id,
+    state,
+    start_date,
+    end_date
+from task_instance
+where state = 'failed'
+order by end_date desc;
+```
+
+Classifica task con errori
+```
+select
+    dag_id,
+    task_id,
+    count(*)
+from task_instance
+where state = 'failed'
+group by dag_id, task_id
+order by count(*) desc;
+```
