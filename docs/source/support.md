@@ -1,7 +1,7 @@
 # Request Support
 
 <form
-    action="http://192.168.137.84:5000/submit"
+    action="https://ttshpc-dev.private.cineca.it:5000/submit"
     method="POST"
     enctype="multipart/form-data"
 >
