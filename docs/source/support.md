@@ -1,7 +1,7 @@
 # Request Support
 
 <form
-    action="https://ttshpc-dev.private.cineca.it/REST/2.0/ticket?Queue=1"
+    action="https://ttshpc-dev.private.cineca.it/REST/2.0/ticket"
     method="POST"
     enctype="multipart/form-data"
 >
