@@ -1,4 +1,5 @@
-# Configurazione Alert Teams per Airflow
+Configurazione Alert Teams per Airflow
+========================
 
 ## Scopo
 
@@ -35,9 +36,9 @@ nel canale Teams Airflow_alerts
 
 ---
 
-# Configurazione Teams
+## Configurazione Teams
 
-## Workflow utilizzato
+### Workflow utilizzato
 
 Nel canale Teams è stato creato il workflow:
 
@@ -47,7 +48,7 @@ Send webhook alerts to Airflow_alerts
 
 Il workflow genera un endpoint HTTP (webhook) che riceve richieste POST e pubblica una **Adaptive Card** nel canale.
 
-### Nota importante
+#### Nota importante
 
 Il workflow si aspetta che il body della richiesta sia direttamente una **Adaptive Card** valida.
 
@@ -71,9 +72,9 @@ Il payload deve iniziare con:
 
 ---
 
-# Configurazione Airflow
+## Configurazione Airflow
 
-## Variabile Airflow
+### Variabile Airflow
 
 È stata creata la variabile:
 
@@ -83,13 +84,13 @@ teams_webhook_url
 
 contenente l'URL del webhook generato dal workflow Teams.
 
-### Verifica da CLI
+#### Verifica da CLI
 
 ```bash
 airflow variables get teams_webhook_url
 ```
 
-### Verifica da UI
+#### Verifica da UI
 
 ```text
 Admin
@@ -101,13 +102,13 @@ Admin
 
 ## Callback Python
 
-### File
+#### File
 
 ```text
 dags/tasks/alert_callback.py
 ```
 
-### Contenuto
+#### Contenuto
 
 ```python
 from airflow.models import Variable
