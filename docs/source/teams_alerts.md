@@ -1,5 +1,4 @@
-Configurazione Alert Teams per Airflow
-========================
+# Configurazione Alert Teams per Airflow
 
 ## Scopo
 
