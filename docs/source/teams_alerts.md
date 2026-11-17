@@ -101,13 +101,13 @@ Admin
 
 ## Callback Python
 
-#### File
+### File
 
 ```text
 dags/tasks/alert_callback.py
 ```
 
-#### Contenuto
+### Contenuto
 
 ```python
 from airflow.models import Variable
