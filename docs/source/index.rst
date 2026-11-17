@@ -15,6 +15,6 @@ Contents
    comandi_cluster
    comandi_docker_postgres
    sql_query_utili
+   teams_alerts
    tts
-   guida_installazione_miniconda
    varie
