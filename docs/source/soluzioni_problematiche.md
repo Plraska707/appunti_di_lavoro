@@ -1113,3 +1113,39 @@ Il file di configurazione deve essere quello del server che ci interessa, in que
 sudo -u postgres psql -U postgres -p 5433 -d graphs
 - creare il db  
 CREATE DATABASE testdb OWNER airflow;
+
+## GPG key
+
+Per creare il file della chiave pubblica, lanciare:
+```
+gpg --full-gen-key
+```
+
+e poi seguire il prompt.
+
+Il nome della chiave si individua lanciando
+```
+gpg -K --keyid-format=long
+```
+Si ottiene qualcosa del genere:
+
+
+>sec   rsa3072/90ABCDEF12345678 2026-11-25 [SC]
+      1234567890ABCDEF1234567890ABCDEF12345678  
+uid           [ultimate] Attilio Marcelli <attilio@example.com>  
+ssb   cv25519/0A12345B678CD910 2026-11-25 [E]
+
+
+e il nome_chiave corrisponde a 90ABCDEF12345678
+
+Per esportare e inviare la chiave pubblica:
+```
+gpg --armor --export nome_chiave > a07ccc01_pub.gpg
+```
+
+Per decriptare il file che viene girato, lanciare il comando:
+```
+gpg -d nomefile.gpg
+```
+
+E inserire la password inserita durante la creazione della chiave.
