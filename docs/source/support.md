@@ -1,4 +1,9 @@
 # Request Support
+<script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer>
+</script>
 
 <form
     action="http://localhost:5000/submit"
@@ -75,6 +80,11 @@
 <div style="display:none;">
     <label>Website</label>
     <input type="text" name="website">
+</div>
+
+<div
+    class="cf-turnstile"
+    data-sitekey="0x4AAAAAAEtmvPTLLMtRaQYd">
 </div>
 
 <p>
