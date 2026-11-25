@@ -1147,5 +1147,9 @@ Per decriptare il file che viene girato, lanciare il comando:
 ```
 gpg -d nomefile.gpg
 ```
+oppure per creare direttamente un file
 
-E inserire la password inserita durante la creazione della chiave.
+```
+gpg -d -o nomefile nomefile.gpg
+```
+e inserire la password inserita durante la creazione della chiave.
