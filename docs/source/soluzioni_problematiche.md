@@ -1147,9 +1147,11 @@ Per decriptare il file che viene girato, lanciare il comando:
 ```
 gpg -d nomefile.gpg
 ```
-oppure per creare direttamente un file
-
+se è un file zippato, lanciare:
 ```
-gpg -d -o nomefile nomefile.gpg
+gpg -o archivio.tar -d nomefile.tar.gpg
 ```
-e inserire la password inserita durante la creazione della chiave.
+inserire la password inserita durante la creazione della chiave, e poi:
+```
+tar xvf archivio.tar
+```
